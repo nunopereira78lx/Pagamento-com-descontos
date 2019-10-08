@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagamento com Descontos</title>
+
+</head>
+<body>
+            <form>
+    <h1>Vamor fazer contas</h1>
+    <input type="text" id="valor"><br>
+    <p>Forma de pagamento:</p><br>
+    <select id="pagamento">
+        <option value="1">Com desconto de 10%</option>
+        <option value="2">Com desconto de 5%</option>
+        <option value="3">Com aumento de 10%</option>
+
+    </select>
+    <br>
+    valor real do produto: <input type="text" id="valorReal" readonly>  <br>
+    valor total a pagar: <input type="text" id="valorPagar" readonly>  <br>
+    <input type="button" value="Calular" id="button" onclick="calcular()">
+
+
+
+</form>
+
+    <script>
+
+
+        
+        
+        let calcular = () => {
+         
+            var valor = parseFloat(document.getElementById("valor").value);
+            var forma_pag = parseInt(document.getElementById("pagamento").value);
+            var valor_total=0;
+            
+
+
+            switch (forma_pag){
+                case 1: valor_total = valor - (valor * 0.10);
+                    break;
+                case 2: valor_total = valor - (valor * 0.05);
+                    break;
+                case 3: valor_total = valor + (valor * 0.10);
+                    break;
+            }
+
+            document.getElementById("valorReal").value = valor;
+            document.getElementById("valorPagar").value = valor_total;
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    
+    
+</body>
+</html>
